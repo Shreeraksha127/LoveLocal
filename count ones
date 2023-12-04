@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+ 
+class Countones{
+   public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a number");
+        int n=sc.nextInt();
+        int A=n;
+        int factors = 1, count = 0, remainder = 0;
+        while (n > 0) {
+            int temp = factors;
+            if (n % 10 == 0) {
+                remainder = 0;
+            }
+            else if (n % 10 > 1) {
+                remainder = temp;
+            }
+            else if (n % 10 == 1) {
+                remainder = (A % temp) + 1;
+            }
+            factors *= 10; 
+            count += (A / factors) * temp + remainder;
+            n = n / 10;
+        }
+       System.out.print(count);
+    }
+   
+}
